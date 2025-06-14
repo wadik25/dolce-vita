@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dolce Vita - Über uns</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0e6d2; /* warmes Beige */
+      color: #222;
+    }
+    header {
+      background: linear-gradient(90deg, #2e7d32, #fffefb, #c62828);
+      padding: 15px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .logo {
+      position: absolute;
+      left: 20px;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #c62828;
+      text-shadow: 2px 2px 5px #7a2b2b;
+      user-select: none;
+      cursor: default;
+    }
+    nav {
+      display: flex;
+      gap: 18px;
+    }
+    nav a {
+      background: #a5d6a7;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #222;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #81c784;
+    }
+    .language-select {
+      display: flex;
+      gap: 10px;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+    .language-select img {
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+    .language-select img:hover {
+      transform: scale(1.1);
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 20px 60px;
+      background: #fffefb;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1.title {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 3.6rem;
+      color: #c62828;
+      text-shadow: 2px 2px 5px #7a2b2b;
+      margin: 0 0 20px;
+      user-select: none;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s ease forwards;
+      animation-delay: 0.15s;
+    }
+    h2.subtitle {
+      margin: 0 0 20px;
+      font-family: 'Cinzel Decorative', cursive;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #2e7d32;
+      text-shadow: 1px 1px 3px #999;
+      user-select: none;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s ease forwards;
+      animation-delay: 0.45s;
+    }
+    .content {
+      background-color: #fffefb;
+      color: #222;
+      padding: 25px 30px;
+      border-radius: 20px;
+      max-width: 700px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      line-height: 1.5;
+      text-align: center;
+      /* stärkerer Schatten für besseren Kontrast */
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      user-select: none;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s ease forwards;
+      animation-delay: 0.6s;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    footer {
+      max-width: 900px;
+      margin: 20px auto 60px;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Dolce Vita</div>
+    <nav>
+      <a href="start.html" data-key="nav_start">Start</a>
+      <a href="about.html" class="active" aria-current="page" data-key="nav_about">Über uns</a>
+      <a href="speisekarte.html" data-key="nav_menu">Speisekarte</a>
+      <a href="contact.html" data-key="nav_contact">Kontakt</a>
+    </nav>
+    <div class="language-select">
+      <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" onclick="setLanguage('de')" />
+      <img src="https://flagcdn.com/w40/it.png" alt="Italienisch" onclick="setLanguage('it')" />
+      <img src="https://flagcdn.com/w40/gb.png" alt="Englisch" onclick="setLanguage('en')" />
+    </div>
+  </header>
+
+  <main>
+    <h1 class="title" data-key="title">Über uns</h1>
+    <h2 class="subtitle" data-key="subtitle">Unsere Geschichte</h2>
+    <div class="content" aria-live="polite" data-key="content">
+      Dolce Vita wurde 2010 gegründet und hat sich seitdem zu einem beliebten Treffpunkt für Liebhaber der italienischen Küche in Westerkappeln entwickelt. Mit frischen Zutaten, traditionellen Rezepten und viel Herz bieten wir Ihnen ein unvergleichliches kulinarisches Erlebnis.
+    </div>
+  </main>
+
+  <footer data-key="footer">
+    &copy; 2025 Dolce Vita. Alle Rechte vorbehalten.
+  </footer>
+
+  <script>
+    const translations = {
+      de: {
+        nav_start: "Start",
+        nav_about: "Über uns",
+        nav_menu: "Speisekarte",
+        nav_contact: "Kontakt",
+        title: "Über uns",
+        subtitle: "Unsere Geschichte",
+        content: "Dolce Vita wurde 2010 gegründet und hat sich seitdem zu einem beliebten Treffpunkt für Liebhaber der italienischen Küche in Westerkappeln entwickelt. Mit frischen Zutaten, traditionellen Rezepten und viel Herz bieten wir Ihnen ein unvergleichliches kulinarisches Erlebnis.",
+        footer: "© 2025 Dolce Vita. Alle Rechte vorbehalten."
+      },
+      it: {
+        nav_start: "Inizio",
+        nav_about: "Chi siamo",
+        nav_menu: "Menù",
+        nav_contact: "Contatti",
+        title: "Chi siamo",
+        subtitle: "La nostra storia",
+        content: "Dolce Vita è stata fondata nel 2010 e da allora è diventata un punto di ritrovo popolare per gli amanti della cucina italiana a Westerkappeln. Con ingredienti freschi, ricette tradizionali e tanto cuore, vi offriamo un'esperienza culinaria unica.",
+        footer: "© 2025 Dolce Vita. Tutti i diritti riservati."
+      },
+      en: {
+        nav_start: "Home",
+        nav_about: "About Us",
+        nav_menu: "Menu",
+        nav_contact: "Contact",
+        title: "About Us",
+        subtitle: "Our Story",
+        content: "Dolce Vita was founded in 2010 and has since become a popular meeting point for lovers of Italian cuisine in Westerkappeln. With fresh ingredients, traditional recipes, and lots of heart, we offer you an unparalleled culinary experience.",
+        footer: "© 2025 Dolce Vita. All rights reserved."
+      }
+    };
+
+    let currentLang = localStorage.getItem("dolceLang") || "de";
+
+    function setLanguage(lang) {
+      localStorage.setItem("dolceLang", lang);
+      translatePage(lang);
+    }
+
+    function translatePage(lang) {
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        const text = translations[lang][key];
+        if (text) el.textContent = text;
+      });
+    }
+
+    document.querySelectorAll(".language-select img").forEach(img => {
+      img.addEventListener("click", () => {
+        const lang = img.getAttribute("onclick").match(/'(.+?)'/)[1];
+        if (lang !== currentLang) {
+          currentLang = lang;
+          setLanguage(lang);
+        }
+      });
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      translatePage(currentLang);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dolce Vita - Kontakt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0e6d2; /* warmes Beige */
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(90deg, #2e7d32, #fffefb, #c62828);
+      padding: 15px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      left: 20px;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #c62828;
+      text-shadow: 2px 2px 5px #7a2b2b;
+      user-select: none;
+      cursor: default;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+    }
+
+    nav a {
+      background: #a5d6a7;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #222;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #81c784;
+    }
+
+    .language-select {
+      display: flex;
+      gap: 10px;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+
+    .language-select img {
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+
+    .language-select img:hover {
+      transform: scale(1.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 20px 60px;
+      background: #fffefb;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      min-height: 400px;
+    }
+
+    h1.title {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 3rem;
+      color: #c62828;
+      text-shadow: 2px 2px 5px #7a2b2b;
+      margin: 30px 0 20px;
+      text-align: center;
+      user-select: none;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s ease forwards;
+      animation-delay: 0.15s;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    label {
+      font-weight: 700;
+      color: #555;
+    }
+    input, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1.8px solid #c62828;
+      font-size: 1rem;
+      resize: vertical;
+      font-family: inherit;
+    }
+    button {
+      background-color: #c62828;
+      color: white;
+      font-weight: 700;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #a52222;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      max-width: 900px;
+      margin: 20px auto 60px;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Dolce Vita</div>
+    <nav>
+      <a href="start.html" data-key="nav_start">Start</a>
+      <a href="about.html" data-key="nav_about">Über uns</a>
+      <a href="speisekarte.html" data-key="nav_menu">Speisekarte</a>
+      <a href="contact.html" class="active" aria-current="page" data-key="nav_contact">Kontakt</a>
+    </nav>
+    <div class="language-select">
+      <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" onclick="setLanguage('de')" />
+      <img src="https://flagcdn.com/w40/it.png" alt="Italienisch" onclick="setLanguage('it')" />
+      <img src="https://flagcdn.com/w40/gb.png" alt="Englisch" onclick="setLanguage('en')" />
+    </div>
+  </header>
+
+  <main>
+    <h1 class="title" data-key="title">Kontakt</h1>
+
+    <form>
+      <label for="name" data-key="label_name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="" />
+
+      <label for="email" data-key="label_email">E-Mail:</label>
+      <input type="email" id="email" name="email" placeholder="" />
+
+      <label for="message" data-key="label_message">Nachricht:</label>
+      <textarea id="message" name="message" rows="5" placeholder=""></textarea>
+
+      <button type="submit" data-key="btn_submit">Absenden</button>
+    </form>
+  </main>
+
+  <footer data-key="footer">
+    &copy; 2025 Dolce Vita. Alle Rechte vorbehalten.
+  </footer>
+
+  <script>
+    const translations = {
+      de: {
+        nav_start: "Start",
+        nav_about: "Über uns",
+        nav_menu: "Speisekarte",
+        nav_contact: "Kontakt",
+        title: "Kontakt",
+        label_name: "Name:",
+        label_email: "E-Mail:",
+        label_message: "Nachricht:",
+        btn_submit: "Absenden",
+        footer: "© 2025 Dolce Vita. Alle Rechte vorbehalten."
+      },
+      it: {
+        nav_start: "Inizio",
+        nav_about: "Chi siamo",
+        nav_menu: "Menù",
+        nav_contact: "Contatti",
+        title: "Contatto",
+        label_name: "Nome:",
+        label_email: "E-mail:",
+        label_message: "Messaggio:",
+        btn_submit: "Invia",
+        footer: "© 2025 Dolce Vita. Tutti i diritti riservati."
+      },
+      en: {
+        nav_start: "Home",
+        nav_about: "About Us",
+        nav_menu: "Menu",
+        nav_contact: "Contact",
+        title: "Contact",
+        label_name: "Name:",
+        label_email: "E-Mail:",
+        label_message: "Message:",
+        btn_submit: "Send",
+        footer: "© 2025 Dolce Vita. All rights reserved."
+      }
+    };
+
+    let currentLang = localStorage.getItem("dolceLang") || "de";
+
+    function setLanguage(lang) {
+      localStorage.setItem("dolceLang", lang);
+      updateTexts(lang);
+    }
+
+    function updateTexts(lang) {
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        const text = translations[lang][key];
+        if (text) el.textContent = text;
+      });
+
+      // placeholders
+      if (lang === "de") {
+        document.getElementById("name").placeholder = "Dein Name";
+        document.getElementById("email").placeholder = "Deine E-Mail-Adresse";
+        document.getElementById("message").placeholder = "Deine Nachricht hier...";
+      } else if (lang === "it") {
+        document.getElementById("name").placeholder = "Il tuo nome";
+        document.getElementById("email").placeholder = "La tua e-mail";
+        document.getElementById("message").placeholder = "Il tuo messaggio qui...";
+      } else if (lang === "en") {
+        document.getElementById("name").placeholder = "Your name";
+        document.getElementById("email").placeholder = "Your email address";
+        document.getElementById("message").placeholder = "Your message here...";
+      }
+    }
+
+    document.querySelectorAll(".language-select img").forEach(img => {
+      img.addEventListener("click", () => {
+        const lang = img.getAttribute("onclick").match(/'(.+?)'/)[1];
+        if (lang !== currentLang) {
+          currentLang = lang;
+          setLanguage(lang);
+        }
+      });
+    });
+
+    // init
+    updateTexts(currentLang);
+  </script>
+
+</body>
+</html>

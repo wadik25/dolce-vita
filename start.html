@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dolce Vita - Start</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0e6d2; /* warmes Beige */
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(90deg, #2e7d32, #fffefb, #c62828);
+      padding: 15px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      left: 20px;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #c62828;
+      text-shadow: 2px 2px 5px #7a2b2b;
+      user-select: none;
+      cursor: default;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+    }
+
+    nav a {
+      background: #a5d6a7;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #222;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #81c784;
+    }
+
+    .language-select {
+      display: flex;
+      gap: 10px;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+
+    .language-select img {
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+
+    .language-select img:hover {
+      transform: scale(1.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 20px 60px;
+      background: #fffefb;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1.title {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 3.6rem;
+      color: #c62828;
+      text-shadow: 2px 2px 5px #7a2b2b;
+      margin: 0 0 10px;
+      user-select: none;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s ease forwards;
+      animation-delay: 0.15s;
+      text-align: center;
+    }
+
+    .flag-underline {
+      width: 120px;
+      height: 16px;
+      background: url('https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg') no-repeat center/cover;
+      border-radius: 5px;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    h2.subtitle {
+      margin: 0 0 20px;
+      font-family: 'Cinzel Decorative', cursive;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #2e7d32;
+      text-shadow: 1px 1px 3px #999;
+      user-select: none;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s ease forwards;
+      animation-delay: 0.45s;
+      text-align: center;
+    }
+
+    .bubble {
+      background-color: #fffefb;
+      color: #222;
+      padding: 25px 30px;
+      border-radius: 20px;
+      max-width: 700px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      line-height: 1.5;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      user-select: none;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s ease forwards;
+      animation-delay: 0.6s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      max-width: 900px;
+      margin: 20px auto 60px;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Dolce Vita</div>
+    <nav>
+      <a href="start.html" class="active" aria-current="page" data-i18n="nav_start">Start</a>
+      <a href="about.html" data-i18n="nav_about">Über uns</a>
+      <a href="speisekarte.html" data-i18n="nav_menu">Speisekarte</a>
+      <a href="contact.html" data-i18n="nav_contact">Kontakt</a>
+    </nav>
+    <div class="language-select">
+      <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" onclick="setLanguage('de')" />
+      <img src="https://flagcdn.com/w40/it.png" alt="Italienisch" onclick="setLanguage('it')" />
+      <img src="https://flagcdn.com/w40/gb.png" alt="Englisch" onclick="setLanguage('en')" />
+    </div>
+  </header>
+
+  <main>
+    <h1 class="title" data-i18n="welcome">Benvenuti al Dolce Vita</h1>
+    <div class="flag-underline"></div>
+    <h2 class="subtitle" data-i18n="passion">Unsere Leidenschaft für Sie</h2>
+    <div class="bubble" data-i18n="introText">
+      Erleben Sie echte italienische Küche im Herzen von Westerkappeln! Unsere Spezialität ist hausgemachter Kebab und traditionelle Pizza, frisch für Sie zubereitet. Genießen Sie authentische Aromen, liebevoll zubereitete Gerichte und einen Hauch von Dolce Vita in jedem Bissen.
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Dolce Vita. Alle Rechte vorbehalten.
+  </footer>
+
+  <script>
+    const translations = {
+      de: {
+        nav_start: "Start",
+        nav_about: "Über uns",
+        nav_menu: "Speisekarte",
+        nav_contact: "Kontakt",
+        welcome: "Benvenuti al Dolce Vita",
+        passion: "Unsere Leidenschaft für Sie",
+        introText: "Erleben Sie echte italienische Küche im Herzen von Westerkappeln! Unsere Spezialität ist hausgemachter Kebab und traditionelle Pizza, frisch für Sie zubereitet. Genießen Sie authentische Aromen, liebevoll zubereitete Gerichte und einen Hauch von Dolce Vita in jedem Bissen."
+      },
+      it: {
+        nav_start: "Home",
+        nav_about: "Chi siamo",
+        nav_menu: "Menù",
+        nav_contact: "Contatto",
+        welcome: "Benvenuti al Dolce Vita",
+        passion: "La nostra passione per voi",
+        introText: "Scoprite la vera cucina italiana nel cuore di Westerkappeln! La nostra specialità è il kebab fatto in casa e la pizza tradizionale, preparati freschi per voi. Gustate sapori autentici, piatti preparati con amore e un tocco di Dolce Vita in ogni morso."
+      },
+      en: {
+        nav_start: "Home",
+        nav_about: "About Us",
+        nav_menu: "Menu",
+        nav_contact: "Contact",
+        welcome: "Welcome to Dolce Vita",
+        passion: "Our passion for you",
+        introText: "Experience real Italian cuisine in the heart of Westerkappeln! Our specialty is homemade kebab and traditional pizza, freshly prepared for you. Enjoy authentic flavors, lovingly made dishes, and a touch of Dolce Vita in every bite."
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem("lang", lang);
+      updateLanguage(lang);
+    }
+
+    function updateLanguage(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    const savedLang = localStorage.getItem("lang") || "de";
+    updateLanguage(savedLang);
+  </script>
+
+</body>
+</html>

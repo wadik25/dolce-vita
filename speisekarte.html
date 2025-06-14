@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dolce Vita - Speisekarte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0e6d2; /* warmes Beige */
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(90deg, #2e7d32, #fffefb, #c62828);
+      padding: 15px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      left: 20px;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #c62828;
+      text-shadow: 2px 2px 5px #7a2b2b;
+      user-select: none;
+      cursor: default;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+    }
+
+    nav a {
+      background: #a5d6a7;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #222;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #81c784;
+    }
+
+    .language-select {
+      display: flex;
+      gap: 10px;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+
+    .language-select img {
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+
+    .language-select img:hover {
+      transform: scale(1.1);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 20px 60px;
+      background: #fffefb;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1.title {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 3rem;
+      color: #c62828;
+      text-shadow: 2px 2px 5px #7a2b2b;
+      margin: 30px 0 20px;
+      text-align: center;
+      user-select: none;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s ease forwards;
+      animation-delay: 0.15s;
+    }
+
+    .menu-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .gericht {
+      background: #fafafa;
+      border-radius: 15px;
+      box-shadow: 3px 5px 10px rgba(0,0,0,0.12);
+      padding: 18px;
+      text-align: center;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.7s ease forwards;
+    }
+    .gericht:nth-child(1) { animation-delay: 0.25s; }
+    .gericht:nth-child(2) { animation-delay: 0.4s; }
+    .gericht:nth-child(3) { animation-delay: 0.55s; }
+
+    .gericht:hover {
+      transform: translateY(-8px);
+      box-shadow: 7px 15px 25px rgba(0,0,0,0.25);
+    }
+
+    .gericht img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
+    }
+    .gericht h3 {
+      color: #c62828;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .gericht p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.3;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      max-width: 900px;
+      margin: 20px auto 60px;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Dolce Vita</div>
+    <nav>
+      <a href="start.html" data-key="nav_start">Start</a>
+      <a href="about.html" data-key="nav_about">Über uns</a>
+      <a href="speisekarte.html" class="active" aria-current="page" data-key="nav_menu">Speisekarte</a>
+      <a href="contact.html" data-key="nav_contact">Kontakt</a>
+    </nav>
+    <div class="language-select">
+      <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" onclick="setLanguage('de')" />
+      <img src="https://flagcdn.com/w40/it.png" alt="Italienisch" onclick="setLanguage('it')" />
+      <img src="https://flagcdn.com/w40/gb.png" alt="Englisch" onclick="setLanguage('en')" />
+    </div>
+  </header>
+
+  <main>
+    <h1 class="title" data-key="title">Unsere Spezialitäten</h1>
+    <div class="menu-section">
+      <article class="gericht" data-key="item1">
+        <img src="https://images.t-online.de/2021/06/89645254v3/0x100:1920x1080/fit-in/1920x0/pizza-margherita-sie-ist-die-typische-pizza-der-neapolitanischen-kueche.jpg" alt="Pizza Margherita">
+        <h3>Pizza Margherita</h3>
+        <p>Klassische Pizza mit Tomatensauce, Mozzarella und frischem Basilikum – ein italienischer Klassiker.</p>
+      </article>
+      <article class="gericht" data-key="item2">
+        <img src="https://babakebab.de/trex/assets/img/urunler/2043922050.jpg" alt="Kebab Teller">
+        <h3>Kebab Teller</h3>
+        <p>Saftiges gegrilltes Fleisch, serviert mit frischem Salat, Pommes und hausgemachter Soße.</p>
+      </article>
+      <article class="gericht" data-key="item3">
+        <img src="https://img.zeit.de/zeit-magazin/2024-08/tiramisu-roberto-linguanotto-rezept/super__1000x666" alt="Tiramisu">
+        <h3>Tiramisu</h3>
+        <p>Das berühmte italienische Dessert mit Mascarpone, Espresso und einem Hauch Kakao.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer data-key="footer">
+    &copy; 2025 Dolce Vita. Alle Rechte vorbehalten.
+  </footer>
+
+  <script>
+    const translations = {
+      de: {
+        nav_start: "Start",
+        nav_about: "Über uns",
+        nav_menu: "Speisekarte",
+        nav_contact: "Kontakt",
+        title: "Unsere Spezialitäten",
+        item1: "Pizza Margherita – Klassische Pizza mit Tomatensauce, Mozzarella und frischem Basilikum – ein italienischer Klassiker.",
+        item2: "Kebab Teller – Saftiges gegrilltes Fleisch, serviert mit frischem Salat, Pommes und hausgemachter Soße.",
+        item3: "Tiramisu – Das berühmte italienische Dessert mit Mascarpone, Espresso und einem Hauch Kakao.",
+        footer: "© 2025 Dolce Vita. Alle Rechte vorbehalten."
+      },
+      it: {
+        nav_start: "Inizio",
+        nav_about: "Chi siamo",
+        nav_menu: "Menù",
+        nav_contact: "Contatti",
+        title: "Le nostre specialità",
+        item1: "Pizza Margherita – Pizza classica con salsa di pomodoro, mozzarella e basilico fresco – un classico italiano.",
+        item2: "Piatto Kebab – Carne alla griglia succosa, servita con insalata fresca, patatine e salsa fatta in casa.",
+        item3: "Tiramisu – Il famoso dessert italiano con mascarpone, espresso e una spolverata di cacao.",
+        footer: "© 2025 Dolce Vita. Tutti i diritti riservati."
+      },
+      en: {
+        nav_start: "Home",
+        nav_about: "About Us",
+        nav_menu: "Menu",
+        nav_contact: "Contact",
+        title: "Our Specialties",
+        item1: "Pizza Margherita – Classic pizza with tomato sauce, mozzarella and fresh basil – an Italian classic.",
+        item2: "Kebab Plate – Juicy grilled meat served with fresh salad, fries and homemade sauce.",
+        item3: "Tiramisu – The famous Italian dessert with mascarpone, espresso and a hint of cocoa.",
+        footer: "© 2025 Dolce Vita. All rights reserved."
+      }
+    };
+
+    let currentLang = localStorage.getItem("dolceLang") || "de";
+
+    function setLanguage(lang) {
+      localStorage.setItem("dolceLang", lang);
+      updateTexts(lang);
+    }
+
+    function updateTexts(lang) {
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        const text = translations[lang][key];
+        if (!text) return;
+        if (el.tagName.toLowerCase() === "article") {
+          const [heading, desc] = text.split(" – ");
+          el.querySelector("h3").textContent = heading;
+          el.querySelector("p").textContent = desc;
+        } else {
+          el.textContent = text;
+        }
+      });
+    }
+
+    document.querySelectorAll(".language-select img").forEach(img => {
+      img.addEventListener("click", () => {
+        const lang = img.getAttribute("onclick").match(/'(.+?)'/)[1];
+        if (lang !== currentLang) {
+          currentLang = lang;
+          setLanguage(lang);
+        }
+      });
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      updateTexts(currentLang);
+    });
+  </script>
+
+</body>
+</html>
